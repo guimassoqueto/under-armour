@@ -1,6 +1,6 @@
 from selectolax.parser import HTMLParser
 from app.logging.logger import getLogger
-from app.infra.selectolax.helpers import get_image_url, get_price
+from app.infra.selectolax.helpers import get_image_url, get_price, get_afiliate_link
 from app.domain.model import Item
 from urllib.parse import urljoin
 import re
@@ -16,6 +16,7 @@ class Selectolax:
     self.parser = HTMLParser(self.html_content)
 
   def get_products(self) -> list[dict]:
+    logger.info("Parsing products...")
     items = self.parser.css('div.underarmourbr-search-page-0-x-list-item')
     products = []
     for item in items:
@@ -29,7 +30,7 @@ class Selectolax:
         if discount < 40: continue
 
         url = urljoin(self.base_url, item.css_first('a.productLink').attrs["href"])
-        afiliate_url = ""
+        afiliate_url = get_afiliate_link(url)
         category = f"Under Armour Outlet {title}"
         image_url = get_image_url(item.css_first("img.underarmourbr-search-page-0-x-image").attrs["src"])
 
@@ -46,7 +47,7 @@ class Selectolax:
         products.append(item.model_dump())
       except Exception as e:
         continue
-
+    logger.info("Products parsed")
     return products
   
 

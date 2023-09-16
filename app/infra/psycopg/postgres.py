@@ -1,10 +1,14 @@
 import psycopg
 from typing import List
-from app.settings import POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER
+from app.settings import POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER, TABLE_NAME
+from app.logging.logger import getLogger
+
+
+logger = getLogger("postgres.py")
 
 
 def upsert_query(item: dict) -> str:
-    insert = f"INSERT INTO items("
+    insert = f"INSERT INTO {TABLE_NAME}("
     values = "VALUES("
     on_conflict = "ON CONFLICT (url)\nDO UPDATE SET "
     for key, value in item.items():
@@ -24,11 +28,14 @@ def upsert_query(item: dict) -> str:
 
 
 async def insert_products(products: List[dict]) -> None:
+    logger.info("Upserting products into database...")
     for product in products:
         try:
             await PostgresDB.upsert_item(product)
         except Exception as e:
+            logger.warning("Failed to insert product", extra={"product": product})
             continue
+    logger.info("Products inserted")
 
 
 class PostgresDB:
