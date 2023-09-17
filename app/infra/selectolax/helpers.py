@@ -22,3 +22,7 @@ def get_afiliate_link(item_url: str) -> str:
   item_url_encoded=quote(item_url)
   awin_link = f"https://www.awin1.com/cread.php?awinmid={AWIN_ID}&awinaffid={AWIN_AFFID}&ued={item_url_encoded}"
   return awin_link
+
+
+def encode_url(url: str) -> str:
+  return quote(url)
