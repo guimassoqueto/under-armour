@@ -20,3 +20,6 @@ docker-run:
 
 exec:
 	docker exec -it test bash
+
+or:
+	open https://github.com/guimassoqueto/under-armour
