@@ -11,3 +11,12 @@ env:
 
 a:
 	poetry run python main.py
+
+docker-build:
+	docker build -t guimas/ua:latest . -f dev.Dockerfile --no-cache
+
+docker-run:
+	docker run -d --name test guimas/ua:latest
+
+exec:
+	docker exec -it test bash

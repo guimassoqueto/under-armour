@@ -21,7 +21,7 @@ async def get_urls():
     raise(e)
   
 
-async def scrap_data(url: str, concurrency_limit: Semaphore):
+async def application(url: str, concurrency_limit: Semaphore):
   async with concurrency_limit:
     try:
       content = await Playwright.get_content(url)
