@@ -4,14 +4,13 @@ metadata:
   name: ua-configmap
   namespace: sports-namespace
 data:
-  POSTGRES_DB: "postgres"
-  POSTGRES_HOST: "localhost"
-  POSTGRES_PASSWORD: "password"
+  POSTGRES_DB: "uvaazsum"
+  POSTGRES_HOST: "silly.db.elephantsql.com"
+  POSTGRES_PASSWORD: "5ZSOGsKi4m9TStg144-Gn8wf6kx27Hy5"
   POSTGRES_PORT: "5432"
-  POSTGRES_USER: "postgres"
+  POSTGRES_USER: "uvaazsum"
   MAX_CONCURRENCY: "8"
-  UA_URL: "https://www.underarmour.com.br/calcados/outlet?initialMap: productclusterids&initialQuery: 386&map: category-2,productclusternames"
+  UA_URL: "https://www.underarmour.com.br/calcados/outlet?initialMap=productclusterids&initialQuery=386&map=category-2,productclusternames"
   AWIN_ID: "18864"
   AWIN_AFFID: "1420713"
-  MIGRATIONS_PATH: "github://guimassoqueto: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@guimassoqueto/db-migrations/sports-scrap#main"
   PG_DB: "postgres://uvaazsum:5ZSOGsKi4m9TStg144-Gn8wf6kx27Hy5@silly.db.elephantsql.com/uvaazsum"
