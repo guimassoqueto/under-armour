@@ -21,6 +21,7 @@ async def main():
 if __name__ == "__main__":
   logger.info("Iniatilizing app...")
   try:
+    logger.info("Hello")
     app = run(main())
     if app: logger.info("Application completed")
   except Exception as e:

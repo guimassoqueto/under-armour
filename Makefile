@@ -12,12 +12,18 @@ env:
 a:
 	poetry run python main.py
 
-docker-build:
-	docker build -t guimas/ua:latest . -f dev.Dockerfile --no-cache
+up:
+	docker compose up -d
 
+# crie a imagem do container
+docker-build:
+	docker build -t guimas/ua:latest . --no-cache
+
+# rode o container
 docker-run:
 	docker run -d --name test guimas/ua:latest
 
+# acesse o container em execução
 exec:
 	docker exec -it test bash
 

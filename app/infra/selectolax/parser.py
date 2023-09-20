@@ -34,7 +34,7 @@ class Selectolax:
         category = f"Under Armour Outlet {title}"
         image_url = get_image_url(item.css_first("img.underarmourbr-search-page-0-x-image").attrs["src"])
 
-        item = Item(
+        product = Item(
           url=url,
           afiliate_url=encode_url(url),
           title=title,
@@ -46,10 +46,11 @@ class Selectolax:
           reviews=0,
           free_shipping=False
         )
-        products.append(item.model_dump())
+        products.append(product.model_dump())
       except Exception as e:
+        logger.warning(e)
         continue
-    logger.info("Products parsed")
+    logger.info("Products parsed.", extra={"products": items})
     return products
   
 

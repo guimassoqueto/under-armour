@@ -33,7 +33,7 @@ async def insert_products(products: List[dict]) -> None:
         try:
             await PostgresDB.upsert_item(product)
         except Exception as e:
-            logger.warning("Failed to insert product", extra={"product": product})
+            logger.warning("Failed to insert product", stack_info=True, extra={"product": product})
             continue
     logger.info("Products inserted")
 
