@@ -14,6 +14,6 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
     playwright install && \
     playwright install-deps
-ENV UNDER_ARMOUR_OFFERS_URL="https://www.underarmour.com.br/calcados/outlet?initialMap=productclusterids&initialQuery=386&map=category-2,productclusternames"
-ENV MAX_CONCURRENCY=8
+ENV UA_URL="https://www.underarmour.com.br/calcados/outlet?initialMap=productclusterids&initialQuery=386&map=category-2,productclusternames"
+ENV MAX_CC=8
 CMD [ "sleep", "3000" ]

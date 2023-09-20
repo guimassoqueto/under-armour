@@ -1,11 +1,11 @@
 from asyncio import create_task, gather, run, Semaphore
 from app.app import get_urls, application
 from app.logging.logger import getLogger
-from app.settings import MAX_CONCURRENCY
+from app.settings import MAX_CC
 
 
 logger = getLogger("main.py")
-CONCURRENCY_LIMIT = Semaphore(MAX_CONCURRENCY)
+CONCURRENCY_LIMIT = Semaphore(MAX_CC)
 
 
 async def main():
