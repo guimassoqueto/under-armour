@@ -1,0 +1,8 @@
+# (see https://betterstack.com/docs/logs/kubernetes/?source=360797)
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: vector
+spec: {}
+status: {}

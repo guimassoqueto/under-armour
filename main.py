@@ -21,8 +21,9 @@ async def main():
 if __name__ == "__main__":
   logger.info("Iniatilizing app...")
   try:
-    logger.info("Hello")
-    app = run(main())
-    if app: logger.info("Application completed")
+    import datetime
+    logger.info(f"Message: {datetime.datetime.now()}")
+    # app = run(main())
+    # if app: logger.info("Application completed")
   except Exception as e:
     logger.error(e, exc_info=True)

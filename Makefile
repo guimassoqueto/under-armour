@@ -17,11 +17,11 @@ up:
 
 # crie a imagem do container
 docker-build:
-	docker build -t guimas/ua:latest . --no-cache
+	docker build -t guimassoqueto/ua:latest . --no-cache
 
 # rode o container
 docker-run:
-	docker run -d --name test guimas/ua:latest
+	docker run -d --name ua guimassoqueto/ua:latest
 
 # acesse o container em execução
 exec:
