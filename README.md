@@ -13,9 +13,14 @@ The main code is written inside `app/app.py`.
 * Poetry
 
 ## How to Test It In Kubernetes
+###Open the file k8s/configmap and set the environment variables for the pod
 
-* Configure The logger: https://betterstack.com/docs/logs/kubernetes/?source=360797
+1. Be sure to have installed Minikube
+```shell
+minikube start
+```
 
+2. Observalility tool for k8s: https://betterstack.com/docs/logs/kubernetes/?source=360797
 ```shell
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/components.yaml
 ```
@@ -24,21 +29,25 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/down
 wget -O vector-agent.toml https://logs.betterstack.com/vector-toml/kubernetes/n8v7FcsJD3VQ7qTmZofS24ME
 ```
 
-
-1. Be sure to have installed Minikube
 ```shell
-minikube start
+kubectl apply -k k8s/logging
 ```
-1. In the root folder, set the namespace:
+
+```shell
+kubectl rollout restart -n vector daemonset/vector
+```
+
+
+3. In the root folder, set the namespace:
 ```shell
 kubectl replace --force -f k8s/namespace.yml
 ```
-1. Set the environment variables for the container:
+4. Set the environment variables for the container:
 ```shell
 kubectl replace --force -f k8s/configmap.yml
 ```
 
-1. Set the CronJob
+5. Set the CronJob
 ```shell
 kubectl replace --force -f k8s/job.yml
 ```

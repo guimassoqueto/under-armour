@@ -4,13 +4,12 @@ metadata:
   name: ua-configmap
   namespace: sports-namespace
 data:
-  POSTGRES_DB: "uvaazsum"
-  POSTGRES_HOST: "silly.db.elephantsql.com"
-  POSTGRES_PASSWORD: "5ZSOGsKi4m9TStg144-Gn8wf6kx27Hy5"
-  POSTGRES_PORT: "5432"
-  POSTGRES_USER: "uvaazsum"
-  MAX_CONCURRENCY: "8"
+  POSTGRES_DB: <POSTGRES_DB>
+  POSTGRES_HOST: <POSTGRES_HOST>
+  POSTGRES_PASSWORD: <POSTGRES_PASSWORD>
+  POSTGRES_PORT: <POSTGRES_PORT>
+  POSTGRES_USER: <POSTGRES_USER>
+  MAX_CONCURRENCY: <MAX_CONCURRENCY>
   UA_URL: "https://www.underarmour.com.br/calcados/outlet?initialMap=productclusterids&initialQuery=386&map=category-2,productclusternames"
   AWIN_ID: "18864"
   AWIN_AFFID: "1420713"
-  PG_DB: "postgres://uvaazsum:5ZSOGsKi4m9TStg144-Gn8wf6kx27Hy5@silly.db.elephantsql.com/uvaazsum"

@@ -10,21 +10,10 @@ spec:
       template:
         spec:
           containers:
-          # - name: hello
-          #   image: busybox:1.28
-          #   imagePullPolicy: IfNotPresent
-          #   command:
-          #   - /bin/sh
-          #   - -c
-          #   - date; echo Hello from the Kubernetes cluster
-          # restartPolicy: OnFailure
           - name: ua
             image: guimassoqueto/ua:latest
             imagePullPolicy: IfNotPresent
-            command:
-            - python
-            - main.py
             envFrom:
-              - configMapRef:
-                  name: ua-configmap
+            - configMapRef:
+                name: ua-configmap
           restartPolicy: OnFailure
